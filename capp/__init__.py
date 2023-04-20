@@ -9,16 +9,10 @@ application = Flask(__name__)
 ### Code GitHub
 application.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 # DBVAR=os.environ['DATABASE_URL']
-DBVAR="postgres://uxwefjbaraaidz:17b24deb352d8e849d169e382b84a1363e66132e576b505c2407a8708d0a6863@ec2-34-241-82-91.eu-west-1.compute.amazonaws.com:5432/d27k0lgtbp4rqp"
+DBVAR="postgres://uxwefjbaraaidz:17b24deb352d8e849d169e382b84a1363e66132e576b505c2407a8708d0a6863@ec2-34-241-82-91.eu-west-1.compute.amazonaws.com:5432/d27k0lgtbp4rqp:5432/dalivs7lr982t9"
 # DBVAR="postgresql://username:password@host:port/database"
 application.config['SQLALCHEMY_DATABASE_URI'] = DBVAR 
 application.config['SQLALCHEMY_BINDS'] ={'transport': DBVAR}
-
-### Code computer
-# application.config['SECRET_KEY'] = '3oueqkfdfas8ruewqndr8ewrewrouewrere44554'
-# DBVAR="postgresql://username:password@host:port/database"
-# application.config['SQLALCHEMY_DATABASE_URI'] = DBVAR 
-# application.config['SQLALCHEMY_BINDS'] ={'transport': DBVAR}
 
 db = SQLAlchemy(application)
 bcrypt = Bcrypt(application)
@@ -35,4 +29,3 @@ application.register_blueprint(home)
 application.register_blueprint(methodology)
 application.register_blueprint(carbon_app)
 application.register_blueprint(users)
-
